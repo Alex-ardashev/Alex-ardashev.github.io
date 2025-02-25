@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html data-wf-domain="alex-ardashev.github.io" data-wf-page="5819607bc5fddf0f70ab38e6" data-wf-site="57cfb23b904ea6421ee1b8ea">
-
+<html>
 <head>
     <meta charset="utf-8">
-    <title>Welcome stranger</title>
+    <title>Alex Ardashev - Data Professional</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
@@ -14,52 +13,752 @@
     <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="msapplication-config" content="./assets/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#000000">
     <!-- CSS Stylesheets -->
-    <link href="https://daks2k3a4ib2z.cloudfront.net/57cfb23b904ea6421ee1b8ea/css/ry-ry.webflow.a6976e0a3.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="./assets/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-text-color: #0aff0a;
+            --neon-border-color: #0aff0a;
+            --bg-color: #0a0a0a;
+            --secondary-color: #007acc;
+            --tertiary-color: #00ffff;
+            --accent-color: #ff00ff;
+            --text-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        #matrix-canvas, #graph-canvas, #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(10, 10, 10, 0.7);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            border-radius: 5px;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: var(--neon-text-color);
+            font-size: 2.8rem;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
+                         0 0 20px rgba(0, 255, 0, 0.5),
+                         0 0 30px rgba(0, 255, 0, 0.3);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+
+        h2 {
+            color: var(--tertiary-color);
+            font-size: 1.5rem;
+            margin: 20px 0 10px 0;
+            border-bottom: 1px solid var(--tertiary-color);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .section {
+            margin: 25px 0;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--neon-text-color);
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
+                             0 0 20px rgba(0, 255, 0, 0.5),
+                             0 0 30px rgba(0, 255, 0, 0.3);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        a {
+            color: var(--tertiary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 5px var(--accent-color);
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        strong {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .terminal-line {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fade-in 0.5s forwards;
+        }
+
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .terminal-prompt::before {
+            content: "$ ";
+            color: var(--neon-text-color);
+        }
+
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(40, end);
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        .skills-graph {
+            background: rgba(0, 50, 0, 0.2);
+            border: 1px solid var(--neon-border-color);
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 3px;
+        }
+
+        .skill-bar {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .skill-name {
+            width: 120px;
+            text-align: right;
+            margin-right: 10px;
+            color: var(--tertiary-color);
+        }
+
+        .skill-level {
+            flex-grow: 1;
+            background-color: rgba(0, 122, 204, 0.2);
+            height: 10px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .skill-level-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+            animation: skill-fill 2s ease-out forwards;
+            box-shadow: 0 0 8px rgba(0, 122, 204, 0.8);
+        }
+
+        @keyframes skill-fill {
+            from { width: 0; }
+        }
+
+        .loading {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .loading div {
+            position: absolute;
+            border: 4px solid var(--neon-text-color);
+            opacity: 1;
+            border-radius: 50%;
+            animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+        
+        .loading div:nth-child(2) {
+            animation-delay: -0.5s;
+        }
+        
+        @keyframes loading {
+            0% {
+                top: 36px;
+                left: 36px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                top: 0px;
+                left: 0px;
+                width: 72px;
+                height: 72px;
+                opacity: 0;
+            }
+        }
+
+        #stat-counter {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px;
+            border: 1px solid var(--neon-border-color);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            z-index: 10;
+        }
+
+        .counter-item {
+            margin: 3px 0;
+        }
+
+        .counter-label {
+            color: var(--tertiary-color);
+        }
+
+        .counter-value {
+            color: var(--neon-text-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: rgba(0, 30, 60, 0.3);
+            border: 1px solid var(--secondary-color);
+            padding: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 0 15px rgba(0, 122, 204, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .project-title {
+            color: var(--tertiary-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
-<body class="body">
-    <div class="_1 section" style="padding-top: 70px; background-color: #f7f6f3; height: 100vh; width: 200vw">
-        <div class="h-container">
-            <div class="h-half">
-                <h1 class="cc-name title" data-ix="flip-click">Alex Ardashev</h1>
-                <p id="paragraph"><br/>👋<br/></p>
-                <p class="paragraph">
-                    <br/><b>Currently:</b><br/>
-                     <ul>
-                    <li>Senior Analytics Engineer</li>
-                    </ul>
-            
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <canvas id="graph-canvas"></canvas>
+    <canvas id="particle-canvas"></canvas>
 
-                    <br/><br/><b>Previously:</b><br/>
-                    <ul>
-                     <li>Trust & Safety Data Analyst, Berlin '24.</li>
-                     <li>Strategy Consultant in Dubai '19.</li>
-                     <li>Data analyst in Moscow, Paris '18.</li>
-                     <li>MSc Computer Science at Saint-Petersburg Electrotechnical University "LETI" '18.</li>
-                    </ul>
-
-                    <br/><br/><b>Projects:</b><br/>
-                    <ul>
-                        <li>Python package that enhances LLMs performance</li>
-                        <li>Platform for searching and organizing house parties (Inactive).</li>
-                        <li>Interactive homework generator for high school teachers (Inactive).</li>
-                        <li>AI assistant that creates structured JIRA tickets out of raw Slack messages.</li>
-                        <li>B2B platform that provides summaries of conferences worldwide: <a href="https://www.crunchbase.com/organization/brif">Brif</a></li>
-                    </ul>
-                </p>
-
-                <ul class="h-ul w-list-unstyled">
-                    <li class="h-li"><a class="link-box w-inline-block" href="https://www.linkedin.com/in/alexardshv/?locale=en_US" target="_blank" onclick="handleOutboundLinkClicks('Link Section', 'LinkedIn');"><div class="h-link-text">LinkedIn</div></a></li>
-                    <li class="h-li"><a class="link-box w-inline-block" href="https://github.com/alex-ardashev" target="_blank" onclick="handleOutboundLinkClicks('Link Section', 'Github');"><div class="h-link-text">Github</div></a></li>
-                    <li class="h-li"><a class="link-box w-inline-block" href="https://twitter.com/AlekseiArdashev" target="_blank" onclick="handleOutboundLinkClicks('Link Section', 'Twitter');"><div class="h-link-text">Twitter</div></a></li>
-                </ul>
-            </div>
+    <div id="stat-counter">
+        <div class="counter-item">
+            <span class="counter-label">UPTIME:</span> 
+            <span class="counter-value" id="uptime-counter">00:00:00</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-label">VISITORS:</span> 
+            <span class="counter-value" id="visitor-counter">0</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-label">SERVER:</span> 
+            <span class="counter-value">ONLINE</span>
         </div>
     </div>
-</body>
 
+    <div class="container">
+        <div id="greeting-animation">
+            <div class="loading"><div></div><div></div></div>
+            <div class="terminal-line terminal-prompt typewriter">INITIALIZING PROFILE DATA...</div>
+        </div>
+
+        <h1>Alex Ardashev</h1>
+        <p class="terminal-line"><strong>Data Professional | Analytics | Machine Learning</strong></p>
+        
+        <div class="section">
+            <h2>Connect</h2>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/alexardshv/?locale=en_US" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/alex-ardashev" target="_blank">GitHub</a></li>
+                <li><a href="https://twitter.com/AlekseiArdashev" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Summary</h2>
+            <p class="terminal-line">Data professional with over 7 years of experience in analytics, machine learning, and business intelligence. Designed and deployed BI and ML infrastructure for multiple companies using SQL, AWS, Databricks, Python, and Tableau, driving data-driven decisions and cost savings.</p>
+            
+            <div class="skills-graph">
+                <div class="skill-bar">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">SQL</div>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">ML</div>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">AWS</div>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">Databricks</div>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 88%;"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-name">Tableau</div>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Currently</h2>
+            <p class="terminal-line">Senior Analytics Engineer</p>
+        </div>
+        
+        <div class="section">
+            <h2>Previously</h2>
+            <ul>
+                <li>Trust & Safety Data Analyst, Berlin '24</li>
+                <li>Strategy Consultant in Dubai '19</li>
+                <li>Data Analyst in Moscow, Paris '18</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <p class="terminal-line">MSc Computer Science at Saint-Petersburg Electrotechnical University "LETI" '18</p>
+        </div>
+        
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">BRIF</div>
+                    <p>Python package enhancing LLMs performance</p>
+                    <a href="https://pypi.org/project/ai-cheerish">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">Party Finder</div>
+                    <p>Platform for searching and organizing house parties</p>
+                    <small>(Inactive)</small>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">Homework Gen</div>
+                    <p>Interactive homework generator for high school teachers</p>
+                    <small>(Inactive)</small>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">JIRA Bot</div>
+                    <p>AI assistant that creates structured JIRA tickets out of raw Slack messages</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">Brif</div>
+                    <p>B2B platform that provides summaries of conferences worldwide</p>
+                    <a href="https://www.crunchbase.com/organization/brif">View Project</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Achievements</h2>
+            <ul>
+                <li>3rd place in Idealab hackathon for a marketplace recommendation system</li>
+                <li>National sports knife-fighting championship winner</li>
+                <li>Finalist in The Economist essay contest: "Do AI benefits outweigh the risks?"</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Initialize uptime counter
+        let seconds = 0;
+        setInterval(() => {
+            seconds++;
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            
+            document.getElementById('uptime-counter').textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }, 1000);
+
+        // Random visitor counter
+        let visitors = Math.floor(Math.random() * 2000) + 1000;
+        document.getElementById('visitor-counter').textContent = visitors;
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                visitors++;
+                document.getElementById('visitor-counter').textContent = visitors;
+            }
+        }, 5000);
+
+        // Matrix effect
+        const matrixCanvas = document.getElementById('matrix-canvas');
+        const matrixCtx = matrixCanvas.getContext('2d');
+        
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+        
+        const matrixChars = "01";
+        const fontSize = 12;
+        const columns = matrixCanvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * -matrixCanvas.height / fontSize);
+        }
+        
+        function drawMatrix() {
+            matrixCtx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+            
+            matrixCtx.fillStyle = "#0f0";
+            matrixCtx.font = fontSize + "px monospace";
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+                matrixCtx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                    drops[i] = Math.floor(Math.random() * -10);
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        // Data Visualization
+        const graphCanvas = document.getElementById('graph-canvas');
+        const graphCtx = graphCanvas.getContext('2d');
+        
+        graphCanvas.width = window.innerWidth;
+        graphCanvas.height = window.innerHeight;
+        
+        // Data nodes and links
+        const nodes = [];
+        const links = [];
+        const nodeCount = 15;
+        
+        // Create nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push({
+                x: Math.random() * graphCanvas.width,
+                y: Math.random() * graphCanvas.height,
+                radius: Math.random() * 3 + 2,
+                color: `rgb(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`,
+                speedX: (Math.random() - 0.5) * 0.8,
+                speedY: (Math.random() - 0.5) * 0.8
+            });
+        }
+        
+        // Create links between nodes
+        for (let i = 0; i < nodeCount; i++) {
+            const linkCount = Math.floor(Math.random() * 3) + 1;
+            for (let j = 0; j < linkCount; j++) {
+                const target = Math.floor(Math.random() * nodeCount);
+                if (target !== i) {
+                    links.push({
+                        source: i,
+                        target: target
+                    });
+                }
+            }
+        }
+        
+        function drawGraph() {
+            graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+            
+            // Update node positions
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                node.x += node.speedX;
+                node.y += node.speedY;
+                
+                // Bounce off edges
+                if (node.x < 0 || node.x > graphCanvas.width) node.speedX *= -1;
+                if (node.y < 0 || node.y > graphCanvas.height) node.speedY *= -1;
+            }
+            
+            // Draw links
+            for (let i = 0; i < links.length; i++) {
+                const link = links[i];
+                const sourceNode = nodes[link.source];
+                const targetNode = nodes[link.target];
+                
+                // Calculate distance
+                const dx = targetNode.x - sourceNode.x;
+                const dy = targetNode.y - sourceNode.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                // Only draw links if nodes are close enough
+                if (distance < 200) {
+                    const opacity = 1 - distance / 200;
+                    
+                    graphCtx.beginPath();
+                    graphCtx.moveTo(sourceNode.x, sourceNode.y);
+                    graphCtx.lineTo(targetNode.x, targetNode.y);
+                    graphCtx.strokeStyle = `rgba(0, 255, 255, ${opacity * 0.5})`;
+                    graphCtx.stroke();
+                }
+            }
+            
+            // Draw nodes
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                
+                graphCtx.beginPath();
+                graphCtx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                graphCtx.fillStyle = node.color;
+                graphCtx.fill();
+                
+                // Draw pulse effect
+                if (Math.random() > 0.99) {
+                    drawPulse(node.x, node.y);
+                }
+            }
+        }
+        
+        function drawPulse(x, y) {
+            const pulseCount = 3;
+            const maxRadius = 50;
+            const pulses = [];
+            
+            for (let i = 0; i < pulseCount; i++) {
+                pulses.push({
+                    x: x,
+                    y: y,
+                    radius: 5,
+                    maxRadius: maxRadius,
+                    opacity: 1,
+                    speed: 0.5 + Math.random()
+                });
+            }
+            
+            function animatePulses() {
+                let complete = true;
+                
+                for (let i = 0; i < pulses.length; i++) {
+                    const pulse = pulses[i];
+                    
+                    if (pulse.radius < pulse.maxRadius) {
+                        complete = false;
+                        pulse.radius += pulse.speed;
+                        pulse.opacity = 1 - (pulse.radius / pulse.maxRadius);
+                        
+                        graphCtx.beginPath();
+                        graphCtx.arc(pulse.x, pulse.y, pulse.radius, 0, Math.PI * 2);
+                        graphCtx.strokeStyle = `rgba(0, 255, 255, ${pulse.opacity})`;
+                        graphCtx.stroke();
+                    }
+                }
+                
+                if (!complete) {
+                    requestAnimationFrame(animatePulses);
+                }
+            }
+            
+            animatePulses();
+        }
+        
+        // Particle system
+        const particleCanvas = document.getElementById('particle-canvas');
+        const particleCtx = particleCanvas.getContext('2d');
+        
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * particleCanvas.width,
+                y: Math.random() * particleCanvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                color: `rgba(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.7)`
+            });
+        }
+        
+        function drawParticles() {
+            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                
+                p.x += p.speedX;
+                p.y += p.speedY;
+                
+                // Wrap around the screen
+                if (p.x < 0) p.x = particleCanvas.width;
+                if (p.x > particleCanvas.width) p.x = 0;
+                if (p.y < 0) p.y = particleCanvas.height;
+                if (p.y > particleCanvas.height) p.y = 0;
+                
+                particleCtx.beginPath();
+                particleCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                particleCtx.fillStyle = p.color;
+                particleCtx.fill();
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            drawMatrix();
+            drawGraph();
+            drawParticles();
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Resize event handler
+        window.addEventListener('resize', () => {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+            graphCanvas.width = window.innerWidth;
+            graphCanvas.height = window.innerHeight;
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+        });
+
+        // Greeting animation
+        setTimeout(() => {
+            document.getElementById('greeting-animation').style.display = 'none';
+        }, 2000);
+
+        // Add terminal line animation delay
+        const terminalLines = document.querySelectorAll('.terminal-line');
+        terminalLines.forEach((line, index) => {
+            line.style.animationDelay = `${(index + 1) * 0.1 + 0.5}s`;
+        });
+    </script>
+</body>
 </html>
