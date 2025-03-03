@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Alex Ardashev - Data Professional</title>
+    <title>Aleksei Ardashev - Data Professional</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
@@ -18,13 +18,14 @@
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-text-color: #0aff0a;
-            --neon-border-color: #0aff0a;
-            --bg-color: #0a0a0a;
-            --secondary-color: #007acc;
-            --tertiary-color: #00ffff;
-            --accent-color: #ff00ff;
-            --text-color: #e0e0e0;
+            --primary-color: #d4c4b0;
+            --secondary-color: #8b7355;
+            --accent-color: #5c4033;
+            --bg-color: #faf7f2;
+            --text-color: #2c1810;
+            --border-color: #8b7355;
+            --link-color: #6b4423;
+            --link-hover-color: #8b7355;
         }
 
         * {
@@ -45,44 +46,36 @@
         }
 
         #matrix-canvas, #graph-canvas, #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+            display: none;
         }
 
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: rgba(10, 10, 10, 0.7);
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
-            border: 1px solid rgba(0, 255, 0, 0.2);
+            background: #ffffff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
             border-radius: 5px;
             position: relative;
             z-index: 2;
-            backdrop-filter: blur(5px);
         }
 
         h1 {
-            color: var(--neon-text-color);
+            color: var(--accent-color);
             font-size: 2.8rem;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
-                         0 0 20px rgba(0, 255, 0, 0.5),
-                         0 0 30px rgba(0, 255, 0, 0.3);
-            letter-spacing: 2px;
+            text-shadow: none;
+            letter-spacing: 1px;
             margin-bottom: 10px;
             text-transform: uppercase;
-            animation: neon-flicker 1.5s infinite alternate;
+            font-weight: bold;
         }
 
         h2 {
-            color: var(--tertiary-color);
+            color: var(--secondary-color);
             font-size: 1.5rem;
             margin: 20px 0 10px 0;
-            border-bottom: 1px solid var(--tertiary-color);
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -92,37 +85,11 @@
         .section {
             margin: 25px 0;
             position: relative;
-            padding-left: 15px;
+            padding-left: 0;
         }
 
         .section::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--neon-text-color);
-            font-weight: bold;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes neon-flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
-                             0 0 20px rgba(0, 255, 0, 0.5),
-                             0 0 30px rgba(0, 255, 0, 0.3);
-            }
-            20%, 24%, 55% {
-                text-shadow: none;
-            }
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+            display: none;
         }
 
         ul li {
@@ -132,22 +99,23 @@
         }
 
         ul li::before {
-            content: '>';
+            content: '•';
             position: absolute;
             left: 0;
             color: var(--secondary-color);
         }
 
         a {
-            color: var(--tertiary-color);
+            color: var(--link-color);
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
+            font-weight: 500;
         }
 
         a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 5px var(--accent-color);
+            color: var(--link-hover-color);
+            text-shadow: none;
         }
 
         a::after {
@@ -157,7 +125,7 @@
             height: 1px;
             bottom: -2px;
             left: 0;
-            background-color: var(--accent-color);
+            background-color: var(--link-hover-color);
             transform: scaleX(0);
             transform-origin: bottom right;
             transition: transform 0.3s ease;
@@ -169,7 +137,7 @@
         }
 
         strong {
-            color: var(--secondary-color);
+            color: var(--accent-color);
             font-weight: bold;
         }
 
@@ -177,21 +145,14 @@
             display: block;
             margin-bottom: 5px;
             color: var(--text-color);
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fade-in 0.5s forwards;
-        }
-
-        @keyframes fade-in {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            opacity: 1;
+            transform: none;
+            animation: none;
         }
 
         .terminal-prompt::before {
             content: "$ ";
-            color: var(--neon-text-color);
+            color: var(--accent-color);
         }
 
         .typewriter {
@@ -209,7 +170,7 @@
 
         .skills-graph {
             background: rgba(0, 50, 0, 0.2);
-            border: 1px solid var(--neon-border-color);
+            border: 1px solid var(--accent-color);
             padding: 10px;
             margin-top: 15px;
             border-radius: 3px;
@@ -225,7 +186,7 @@
             width: 120px;
             text-align: right;
             margin-right: 10px;
-            color: var(--tertiary-color);
+            color: var(--accent-color);
         }
 
         .skill-level {
@@ -252,15 +213,12 @@
         }
 
         .loading {
-            display: inline-block;
-            position: relative;
-            width: 80px;
-            height: 80px;
+            display: none;
         }
         
         .loading div {
             position: absolute;
-            border: 4px solid var(--neon-text-color);
+            border: 4px solid var(--accent-color);
             opacity: 1;
             border-radius: 50%;
             animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -288,15 +246,7 @@
         }
 
         #stat-counter {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 8px;
-            border: 1px solid var(--neon-border-color);
-            border-radius: 5px;
-            font-size: 0.85rem;
-            z-index: 10;
+            display: none;
         }
 
         .counter-item {
@@ -304,11 +254,11 @@
         }
 
         .counter-label {
-            color: var(--tertiary-color);
+            color: var(--accent-color);
         }
 
         .counter-value {
-            color: var(--neon-text-color);
+            color: var(--accent-color);
         }
 
         .projects-grid {
@@ -319,22 +269,24 @@
         }
 
         .project-card {
-            background: rgba(0, 30, 60, 0.3);
-            border: 1px solid var(--secondary-color);
+            background: #ffffff;
+            border: 1px solid var(--border-color);
             padding: 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         .project-card:hover {
-            box-shadow: 0 0 15px rgba(0, 122, 204, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transform: translateY(-3px);
         }
 
         .project-title {
-            color: var(--tertiary-color);
+            color: var(--accent-color);
             font-size: 1.1rem;
             margin-bottom: 8px;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
