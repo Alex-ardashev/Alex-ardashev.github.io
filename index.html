@@ -21,8 +21,6 @@
 </head>
 
 <body>
-    <canvas id="matrix-canvas"></canvas>
-
     <div id="stat-counter">
         <div class="counter-item">
             <span class="counter-label">Uptime:</span> 
@@ -135,46 +133,6 @@
             document.getElementById('uptime-counter').textContent = 
                 `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }, 1000);
-
-        // Subtle Matrix effect
-        const matrixCanvas = document.getElementById('matrix-canvas');
-        const matrixCtx = matrixCanvas.getContext('2d');
-        
-        matrixCanvas.width = window.innerWidth;
-        matrixCanvas.height = window.innerHeight;
-        
-        const matrixChars = "01";
-        const fontSize = 12;
-        const columns = matrixCanvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-        
-        function drawMatrix() {
-            matrixCtx.fillStyle = "rgba(0, 0, 0, 0.02)";
-            matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-            matrixCtx.fillStyle = "#f0652f"; /* YC orange */
-            matrixCtx.font = `${fontSize}px monospace`;
-            
-            for (let i = 0; i < drops.length; i++) {
-                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
-                matrixCtx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        function animate() {
-            drawMatrix();
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // Resize handler
-        window.addEventListener('resize', () => {
-            matrixCanvas.width = window.innerWidth;
-            matrixCanvas.height = window.innerHeight;
-        });
     </script>
 </body>
 </html>
