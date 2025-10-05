@@ -1,0 +1,50 @@
+{
+  "personal": {
+    "name": "Aleksei Ardashev",
+    "title": "Data Analytics | AI | Data Science",
+    "currentRole": "Senior Product Analyst"
+  },
+  "social": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/alexardshv/?locale=en_US"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/alex-ardashev"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/AlekseiArdashev"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Pickitbox",
+      "description": "Business Intelligence for your business",
+      "url": "https://pickitbox.com/"
+    },
+    {
+      "title": "Compass",
+      "description": "Predicting solar panels logistics costs using ML",
+      "status": "Private"
+    },
+    {
+      "title": "Lighthouse",
+      "description": "Make your business more visible in ChatGPT",
+      "status": "Private"
+    },
+    {
+      "title": "Brif",
+      "description": "B2B platform that provides summaries of conferences worldwide",
+      "url": null,
+      "status": "Inactive"
+    }
+  ],
+  "experience": [
+    "Product Analytics & Engineering, Berlin '25",
+    "Strategy Consulting, Dubai '19",
+    "Data Analytics, Moscow '18"
+  ],
+  "education": "MSc Computer Science at Saint-Petersburg Electrotechnical University \"LETI\""
+}

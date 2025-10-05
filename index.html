@@ -18,14 +18,16 @@
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #d4c4b0;
-            --secondary-color: #8b7355;
-            --accent-color: #5c4033;
-            --bg-color: #faf7f2;
-            --text-color: #2c1810;
-            --border-color: #8b7355;
-            --link-color: #6b4423;
-            --link-hover-color: #8b7355;
+            --primary-color: #0a0a0a;
+            --secondary-color: #2c2c2c;
+            --accent-color: #2563eb;
+            --accent-secondary: #1e40af;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --bg-color: #ffffff;
+            --card-bg: #fafafa;
+            --text-color: #0a0a0a;
+            --text-secondary: #525252;
+            --border-color: #e5e5e5;
         }
 
         * {
@@ -36,13 +38,28 @@
 
         body {
             font-family: 'Share Tech Mono', monospace;
-            background-color: var(--bg-color);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
             color: var(--text-color);
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
         }
 
         #matrix-canvas, #graph-canvas, #particle-canvas {
@@ -50,46 +67,75 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #ffffff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--bg-color);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 0 80px rgba(37, 99, 235, 0.03),
+                inset 0 0 0 1px rgba(0, 0, 0, 0.03);
             border: 1px solid var(--border-color);
-            border-radius: 5px;
+            border-radius: 24px;
             position: relative;
             z-index: 2;
         }
 
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--accent-color) 50%,
+                transparent 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
         h1 {
-            color: var(--accent-color);
-            font-size: 2.8rem;
-            text-shadow: none;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
             text-transform: uppercase;
             font-weight: bold;
+            background: linear-gradient(135deg, #0a0a0a 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         h2 {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-            margin: 20px 0 10px 0;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 5px;
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color) 0%, transparent 100%);
         }
 
         .section {
-            margin: 25px 0;
+            margin: 30px 0;
             position: relative;
-            padding-left: 0;
-        }
-
-        .section::before {
-            display: none;
+            padding: 20px;
+            background: rgba(37, 99, 235, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(37, 99, 235, 0.08);
         }
 
         ul {
@@ -98,20 +144,28 @@
         }
 
         ul li {
-            margin: 8px 0;
-            padding-left: 20px;
+            margin: 12px 0;
+            padding-left: 25px;
             position: relative;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
         }
 
         ul li::before {
-            content: '•';
+            content: '▹';
             position: absolute;
             left: 0;
-            color: var(--secondary-color);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        ul li:hover {
+            color: var(--primary-color);
+            padding-left: 30px;
         }
 
         a {
-            color: var(--link-color);
+            color: var(--accent-color);
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
@@ -119,8 +173,7 @@
         }
 
         a:hover {
-            color: var(--link-hover-color);
-            text-shadow: none;
+            color: var(--accent-secondary);
         }
 
         a::after {
@@ -130,7 +183,7 @@
             height: 1px;
             bottom: -2px;
             left: 0;
-            background-color: var(--link-hover-color);
+            background: var(--accent-color);
             transform: scaleX(0);
             transform-origin: bottom right;
             transition: transform 0.3s ease;
@@ -142,14 +195,14 @@
         }
 
         strong {
-            color: var(--accent-color);
+            color: var(--primary-color);
             font-weight: bold;
         }
 
         .terminal-line {
             display: block;
-            margin-bottom: 5px;
-            color: var(--text-color);
+            margin-bottom: 8px;
+            color: var(--text-secondary);
             opacity: 1;
             transform: none;
             animation: none;
@@ -173,54 +226,10 @@
             to { width: 100% }
         }
 
-        .skills-graph {
-            background: rgba(0, 50, 0, 0.2);
-            border: 1px solid var(--accent-color);
-            padding: 10px;
-            margin-top: 15px;
-            border-radius: 3px;
-        }
-
-        .skill-bar {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-        }
-
-        .skill-name {
-            width: 120px;
-            text-align: right;
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        .skill-level {
-            flex-grow: 1;
-            background-color: rgba(0, 122, 204, 0.2);
-            height: 10px;
-            position: relative;
-            border-radius: 2px;
-        }
-
-        .skill-level-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-            animation: skill-fill 2s ease-out forwards;
-            box-shadow: 0 0 8px rgba(0, 122, 204, 0.8);
-        }
-
-        @keyframes skill-fill {
-            from { width: 0; }
-        }
-
         .loading {
             display: none;
         }
-        
+
         .loading div {
             position: absolute;
             border: 4px solid var(--accent-color);
@@ -228,11 +237,11 @@
             border-radius: 50%;
             animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
         }
-        
+
         .loading div:nth-child(2) {
             animation-delay: -0.5s;
         }
-        
+
         @keyframes loading {
             0% {
                 top: 36px;
@@ -254,59 +263,100 @@
             display: none;
         }
 
-        .counter-item {
-            margin: 3px 0;
-        }
-
-        .counter-label {
-            color: var(--accent-color);
-        }
-
-        .counter-value {
-            color: var(--accent-color);
-        }
-
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .project-card {
-            background: #ffffff;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
             border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.06),
+                inset 0 0 0 1px rgba(37, 99, 235, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: translateY(-3px);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                0 0 40px var(--accent-glow),
+                inset 0 0 0 1px rgba(37, 99, 235, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--accent-color);
+        }
+
+        .project-card > * {
+            position: relative;
+            z-index: 1;
         }
 
         .project-title {
-            color: var(--accent-color);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .project-card small {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
             .container {
-                margin: 10px;
-                padding: 15px;
+                margin: 20px 10px;
+                padding: 25px;
+                border-radius: 16px;
             }
-            
+
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .section {
+                padding: 15px;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
     </style>
 </head>
@@ -333,70 +383,101 @@
             <div class="terminal-line terminal-prompt typewriter">INIT...</div>
         </div>
 
-        <h1>Aleksei Ardashev</h1>
-        <p class="terminal-line"><strong>Data Professional | Analytics | Machine Learning</strong></p>
-        
-        <div class="section">
-            <h2>Connect</h2>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/alexardshv/?locale=en_US" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/alex-ardashev" target="_blank">GitHub</a></li>
-                <li><a href="https://twitter.com/AlekseiArdashev" target="_blank">Twitter</a></li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>Summary</h2>
-            <p class="terminal-line">Data professional with over 7 years of experience in analytics, machine learning, and business intelligence. Designed, deployed and improved BI infrastructures using SQL, AWS, Databricks, MLOps, Airflow, Python, A/B testing, Causal Inference and Tableau driving data-driven decisions and cost savings.</p>
-            
-        </div>
-        
+        <h1 id="name"></h1>
+        <p class="terminal-line"><strong id="title"></strong></p>
+
         <div class="section">
             <h2>Currently</h2>
-            <p class="terminal-line">Senior Analytics Engineer</p>
+            <p class="terminal-line" id="current-role"></p>
         </div>
 
-                <div class="section">
-            <h2>Projects & Research</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-title">Lighthouse</div>
-                    <p>Allignment for AI agents</p>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">Compass</div>
-                    <p>Predicting logistics costs using ML</p>
-                    <a href="https://github.com/Alex-ardashev/Logistics-costs-prediction">View Project</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">AI agent</div>
-                    <p>Customer support AI agent with the access to the company internal database</p>
-                    <small>(Private)</small>
-                </div>
-                <div class="project-card">
-                    <div class="project-title">Brif</div>
-                    <p>B2B platform that provides summaries of conferences worldwide</p>
-                    <small>(Inactive)</small>
-                </div>
-            </div>
+        <div class="section">
+            <h2>Projects & Businesses</h2>
+            <div class="projects-grid" id="projects"></div>
         </div>
-        
+
         <div class="section">
             <h2>Previously</h2>
-            <ul>
-                <li>Data Analyst, Berlin '24</li>
-                <li>Strategy Consultant in Dubai '19</li>
-                <li>Data Analyst in Moscow, Paris '18</li>
-            </ul>
+            <ul id="experience"></ul>
         </div>
-        
+
         <div class="section">
-            <h2>Education</h2>
-            <p class="terminal-line">MSc Computer Science at Saint-Petersburg Electrotechnical University "LETI" '18</p>
+            <h2>Connect</h2>
+            <ul id="social-links"></ul>
         </div>
     </div>
 
     <script>
+        // Load configuration and populate content
+        fetch('config.json')
+            .then(response => response.json())
+            .then(config => {
+                // Personal info
+                document.getElementById('name').textContent = config.personal.name;
+                document.getElementById('title').textContent = config.personal.title;
+                document.getElementById('current-role').textContent = config.personal.currentRole;
+
+                // Social links
+                const socialList = document.getElementById('social-links');
+                config.social.forEach(link => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = link.url;
+                    a.target = '_blank';
+                    a.textContent = link.name;
+                    li.appendChild(a);
+                    socialList.appendChild(li);
+                });
+
+                // Projects
+                const projectsGrid = document.getElementById('projects');
+                config.projects.forEach(project => {
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+
+                    const title = document.createElement('div');
+                    title.className = 'project-title';
+                    title.textContent = project.title;
+                    card.appendChild(title);
+
+                    const description = document.createElement('p');
+                    description.textContent = project.description;
+                    card.appendChild(description);
+
+                    if (project.url) {
+                        const link = document.createElement('a');
+                        link.href = project.url;
+                        link.target = '_blank';
+                        link.textContent = 'View Project';
+                        card.appendChild(link);
+                    }
+
+                    if (project.status) {
+                        const status = document.createElement('small');
+                        status.textContent = `(${project.status})`;
+                        card.appendChild(status);
+                    }
+
+                    projectsGrid.appendChild(card);
+                });
+
+                // Experience (including education)
+                const experienceList = document.getElementById('experience');
+                config.experience.forEach(exp => {
+                    const li = document.createElement('li');
+                    li.textContent = exp;
+                    experienceList.appendChild(li);
+                });
+
+                // Add education to experience list
+                if (config.education) {
+                    const li = document.createElement('li');
+                    li.textContent = config.education;
+                    experienceList.appendChild(li);
+                }
+            })
+            .catch(error => console.error('Error loading config:', error));
+
         // Initialize uptime counter
         let seconds = 0;
         setInterval(() => {
