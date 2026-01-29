@@ -20,6 +20,12 @@
   ],
   "projects": [
     {
+      "title": "FitCommit",
+      "description": "Fitness accountability app that donates your money to charity if you miss workouts",
+      "url": "fitcommit/index.html",
+      "status": "New"
+    },
+    {
       "title": "Pickitbox",
       "description": "AI data analyst",
       "url": "https://pickitbox.com/"
