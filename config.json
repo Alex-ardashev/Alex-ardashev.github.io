@@ -21,9 +21,9 @@
   "projects": [
     {
       "title": "FitCommit",
-      "description": "Fitness accountability app that donates your money to charity if you miss workouts",
+      "description": "Fitness accountability app. Verify workouts with AI, compete on leaderboards, and build habits.",
       "url": "fitcommit/index.html",
-      "status": "New"
+      "status": "Active"
     },
     {
       "title": "Pickitbox",
