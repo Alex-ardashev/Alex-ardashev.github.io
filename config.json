@@ -1,6 +1,6 @@
 {
   "personal": {
-    "name": "Aleksei Ardashev",
+    "name": "Aleksei A.",
     "title": "Data Analytics | AI | Data Science",
     "currentRole": "Senior Product Analyst"
   },
@@ -18,6 +18,30 @@
       "url": "https://twitter.com/AlekseiArdashev"
     }
   ],
+  "products": [
+    {
+      "id": "dubai-guide",
+      "title": "Dubai Guide",
+      "description": "Comprehensive guide to navigating and thriving in Dubai.",
+      "price": "$50",
+      "url": "dubai-guide.html",
+      "links": {
+        "test": "https://buy.stripe.com/test_5kQ7sMe5lgsw79NccP7ok01",
+        "live": "https://buy.stripe.com/5kQ7sMe5lgsw79NccP7ok01"
+      }
+    },
+    {
+      "id": "ai-agents",
+      "title": "AI Agents for Productivity",
+      "description": "Unlock the power of automation and artificial intelligence with custom agent templates.",
+      "price": "$50",
+      "url": "ai-agents.html",
+      "links": {
+        "test": "https://buy.stripe.com/test_00w28s5yP7W08dR7Wz7ok02",
+        "live": "https://buy.stripe.com/00w28s5yP7W08dR7Wz7ok02"
+      }
+    }
+  ],
   "projects": [
     {
       "title": "FitCommit",
@@ -27,7 +51,7 @@
     },
     {
       "title": "Pickitbox",
-      "description": "AI data analyst",
+      "description": "Animals identification via computer vision",
       "url": "https://pickitbox.com/"
     },
     {

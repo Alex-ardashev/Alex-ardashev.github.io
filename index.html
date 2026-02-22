@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Aleksei Ardashev - Tech Professional</title>
@@ -15,30 +16,25 @@
     <meta name="msapplication-config" content="./assets/favicons/browserconfig.xml">
     <meta name="theme-color" content="#000000">
     <!-- CSS Stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0a0a0a;
-            --secondary-color: #2c2c2c;
+            --primary-color: #0f172a;
+            --secondary-color: #334155;
             --accent-color: #2563eb;
-            --accent-secondary: #1e40af;
-            --accent-glow: rgba(37, 99, 235, 0.15);
             --bg-color: #ffffff;
-            --card-bg: #fafafa;
-            --text-color: #0a0a0a;
-            --text-secondary: #525252;
-            --border-color: #e5e5e5;
+            --text-color: #1e293b;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
         }
 
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Share Tech Mono', monospace;
-            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f8fafc;
             color: var(--text-color);
             line-height: 1.6;
             position: relative;
@@ -62,7 +58,9 @@
             z-index: 1;
         }
 
-        #matrix-canvas, #graph-canvas, #particle-canvas {
+        #matrix-canvas,
+        #graph-canvas,
+        #particle-canvas {
             display: none;
         }
 
@@ -89,9 +87,9 @@
             right: 0;
             height: 2px;
             background: linear-gradient(90deg,
-                transparent 0%,
-                var(--accent-color) 50%,
-                transparent 100%);
+                    transparent 0%,
+                    var(--accent-color) 50%,
+                    transparent 100%);
             border-radius: 24px 24px 0 0;
         }
 
@@ -194,75 +192,6 @@
             transform-origin: bottom left;
         }
 
-        strong {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .terminal-line {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-secondary);
-            opacity: 1;
-            transform: none;
-            animation: none;
-        }
-
-        .terminal-prompt::before {
-            content: "$ ";
-            color: var(--accent-color);
-        }
-
-        .typewriter {
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: 0.15em;
-            animation: typing 3.5s steps(40, end);
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        .loading {
-            display: none;
-        }
-
-        .loading div {
-            position: absolute;
-            border: 4px solid var(--accent-color);
-            opacity: 1;
-            border-radius: 50%;
-            animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-        }
-
-        .loading div:nth-child(2) {
-            animation-delay: -0.5s;
-        }
-
-        @keyframes loading {
-            0% {
-                top: 36px;
-                left: 36px;
-                width: 0;
-                height: 0;
-                opacity: 1;
-            }
-            100% {
-                top: 0px;
-                left: 0px;
-                width: 72px;
-                height: 72px;
-                opacity: 0;
-            }
-        }
-
-        #stat-counter {
-            display: none;
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -308,7 +237,7 @@
             border-color: var(--accent-color);
         }
 
-        .project-card > * {
+        .project-card>* {
             position: relative;
             z-index: 1;
         }
@@ -332,6 +261,106 @@
             color: var(--accent-color);
             font-size: 0.85rem;
             opacity: 0.8;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        /* --- Profile Photo --- */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+            flex-shrink: 0;
+            background: var(--bg-color);
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        /* --- Tab Navigation --- */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -11px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -352,58 +381,92 @@
             .section {
                 padding: 15px;
             }
+
+            .tabs {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                border-bottom: none;
+            }
+
+            .tab-btn.active::after {
+                display: none;
+            }
+
+            .tab-btn.active {
+                background: rgba(37, 99, 235, 0.1);
+                border-radius: 8px;
+            }
         }
 
         @keyframes glow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
         }
     </style>
 </head>
 
 <body>
-    <canvas id="matrix-canvas"></canvas>
-    <canvas id="graph-canvas"></canvas>
-    <canvas id="particle-canvas"></canvas>
-
-    <div id="stat-counter">
-        <div class="counter-item">
-            <span class="counter-label">UPTIME:</span> 
-            <span class="counter-value" id="uptime-counter">00:00:00</span>
-        </div>
-        <div class="counter-item">
-            <span class="counter-label">SERVER:</span> 
-            <span class="counter-value">ONLINE</span>
-        </div>
-    </div>
-
     <div class="container">
-        <div id="greeting-animation">
-            <div class="loading"><div></div><div></div></div>
-            <div class="terminal-line terminal-prompt typewriter">INIT...</div>
-        </div>
-
         <h1 id="name"></h1>
-        <p class="terminal-line"><strong id="title"></strong></p>
+        <p><strong id="title" style="display: block; margin-bottom: 5px;"></strong></p>
+        <div id="top-social-links" style="display: flex; gap: 15px; margin-bottom: 30px;"></div>
 
-        <div class="section">
-            <h2>Currently</h2>
-            <p class="terminal-line" id="current-role"></p>
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('products')">Me and my products</button>
+            <button class="tab-btn" onclick="openTab('projects')">Projects</button>
         </div>
 
-        <div class="section">
-            <h2>Projects & Businesses</h2>
-            <div class="projects-grid" id="projects"></div>
+        <!-- Products (Aleksei Ardashev) Tab -->
+        <div id="products-tab" class="tab-content active">
+            <div class="section profile-container">
+                <img src="assets/founder.png" alt="Aleksei Ardashev" class="profile-img"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Aleksei+Ardashev&size=150&background=2563eb&color=fff'">
+                <div>
+                    <h2 style="font-size: 1.2rem; color: var(--text-secondary);">Currently</h2>
+                    <p id="current-role" style="font-size: 1.1rem; font-weight: 500;"></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div style="margin-bottom: 30px; line-height: 1.8; color: var(--text-secondary); text-align: left;">
+                    <p style="margin-bottom: 15px;">In general, I really enjoy finding interesting places and shortcuts
+                        that are hidden from common view—whether that's hacking city infrastructure or exploring
+                        off-the-beaten-path tourism.</p>
+                    <p style="margin-bottom: 15px;">I apply this same unique perspective to software engineering. That's
+                        why I build my own set of products that are agnostic to any specific theme or industry topic.
+                    </p>
+                    <p>My goal is simply to give the world my unique self and incorporate my personal experience into
+                        products that will bring you a truly unique experience.</p>
+                </div>
+                <div class="projects-grid" id="products"></div>
+            </div>
         </div>
 
-        <div class="section">
-            <h2>Previously</h2>
-            <ul id="experience"></ul>
-        </div>
+        <!-- Projects Tab -->
+        <div id="projects-tab" class="tab-content">
+            <div class="section">
+                <h2>Projects & Businesses</h2>
+                <div class="projects-grid" id="projects"></div>
+            </div>
 
-        <div class="section">
-            <h2>Connect</h2>
-            <ul id="social-links"></ul>
+            <div class="section">
+                <h2>Previously</h2>
+                <ul id="experience"></ul>
+            </div>
+
+            <div class="section">
+                <h2>Connect</h2>
+                <ul id="social-links"></ul>
+            </div>
         </div>
     </div>
 
@@ -419,6 +482,7 @@
 
                 // Social links
                 const socialList = document.getElementById('social-links');
+                const topSocialList = document.getElementById('top-social-links');
                 config.social.forEach(link => {
                     const li = document.createElement('li');
                     const a = document.createElement('a');
@@ -427,9 +491,70 @@
                     a.textContent = link.name;
                     li.appendChild(a);
                     socialList.appendChild(li);
+
+                    if (topSocialList) {
+                        const topA = document.createElement('a');
+                        topA.href = link.url;
+                        topA.target = '_blank';
+                        topA.textContent = link.name;
+                        topSocialList.appendChild(topA);
+                    }
                 });
 
-                // Projects
+                // Populate Products
+                if (config.products) {
+                    const productsGrid = document.getElementById('products');
+                    config.products.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'project-card';
+
+                        const title = document.createElement('div');
+                        title.className = 'project-title';
+                        title.textContent = product.title;
+                        card.appendChild(title);
+
+                        const description = document.createElement('p');
+                        description.textContent = product.description;
+                        card.appendChild(description);
+
+                        const price = document.createElement('div');
+                        price.className = 'product-price';
+                        price.textContent = product.price;
+                        card.appendChild(price);
+
+                        const link = document.createElement('a');
+                        link.href = product.url;
+                        link.textContent = 'View Details';
+                        link.style.display = 'inline-block';
+                        link.style.marginRight = '15px';
+                        card.appendChild(link);
+
+                        // Decide whether to use test or live links here. For static site, we just use live links for the buy button.
+                        // Ideally checking window.location.hostname could differentiate, but we'll stick to live for final deploy.
+                        if (product.links) {
+                            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                            const buyLink = document.createElement('a');
+                            buyLink.href = isLocal ? product.links.test : product.links.live;
+                            buyLink.textContent = 'Buy Now';
+                            buyLink.style.fontWeight = 'bold';
+                            buyLink.style.color = 'var(--bg-color)';
+                            buyLink.style.background = 'var(--accent-color)';
+                            buyLink.style.padding = '8px 16px';
+                            buyLink.style.borderRadius = '6px';
+                            buyLink.style.textDecoration = 'none';
+
+                            // Adjust hover state for buy button
+                            buyLink.onmouseover = () => { buyLink.style.background = 'var(--accent-secondary)'; };
+                            buyLink.onmouseout = () => { buyLink.style.background = 'var(--accent-color)'; };
+
+                            card.appendChild(buyLink);
+                        }
+
+                        productsGrid.appendChild(card);
+                    });
+                }
+
+                // Populate Projects
                 const projectsGrid = document.getElementById('projects');
                 config.projects.forEach(project => {
                     const card = document.createElement('div');
@@ -478,269 +603,30 @@
             })
             .catch(error => console.error('Error loading config:', error));
 
-        // Initialize uptime counter
-        let seconds = 0;
-        setInterval(() => {
-            seconds++;
-            const hours = Math.floor(seconds / 3600);
-            const minutes = Math.floor((seconds % 3600) / 60);
-            const secs = seconds % 60;
-            
-            document.getElementById('uptime-counter').textContent = 
-                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-        }, 1000);
+        // Tab Navigation Logic
+        function openTab(tabName) {
+            // Hide all contents
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
 
-        // Random visitor counter
-        let visitors = Math.floor(Math.random() * 2000) + 1000;
-        document.getElementById('visitor-counter').textContent = visitors;
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                visitors++;
-                document.getElementById('visitor-counter').textContent = visitors;
+            // Remove active class from buttons
+            const buttons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
             }
-        }, 5000);
 
-        // Matrix effect
-        const matrixCanvas = document.getElementById('matrix-canvas');
-        const matrixCtx = matrixCanvas.getContext('2d');
-        
-        matrixCanvas.width = window.innerWidth;
-        matrixCanvas.height = window.innerHeight;
-        
-        const matrixChars = "01";
-        const fontSize = 12;
-        const columns = matrixCanvas.width / fontSize;
-        
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * -matrixCanvas.height / fontSize);
-        }
-        
-        function drawMatrix() {
-            matrixCtx.fillStyle = "rgba(0, 0, 0, 0.05)";
-            matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-            
-            matrixCtx.fillStyle = "#0f0";
-            matrixCtx.font = fontSize + "px monospace";
-            
-            for (let i = 0; i < drops.length; i++) {
-                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
-                matrixCtx.fillText(text, i * fontSize, drops[i] * fontSize);
-                
-                if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
-                    drops[i] = Math.floor(Math.random() * -10);
-                }
-                
-                drops[i]++;
-            }
-        }
-        
-        // Data Visualization
-        const graphCanvas = document.getElementById('graph-canvas');
-        const graphCtx = graphCanvas.getContext('2d');
-        
-        graphCanvas.width = window.innerWidth;
-        graphCanvas.height = window.innerHeight;
-        
-        // Data nodes and links
-        const nodes = [];
-        const links = [];
-        const nodeCount = 15;
-        
-        // Create nodes
-        for (let i = 0; i < nodeCount; i++) {
-            nodes.push({
-                x: Math.random() * graphCanvas.width,
-                y: Math.random() * graphCanvas.height,
-                radius: Math.random() * 3 + 2,
-                color: `rgb(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`,
-                speedX: (Math.random() - 0.5) * 0.8,
-                speedY: (Math.random() - 0.5) * 0.8
-            });
-        }
-        
-        // Create links between nodes
-        for (let i = 0; i < nodeCount; i++) {
-            const linkCount = Math.floor(Math.random() * 3) + 1;
-            for (let j = 0; j < linkCount; j++) {
-                const target = Math.floor(Math.random() * nodeCount);
-                if (target !== i) {
-                    links.push({
-                        source: i,
-                        target: target
-                    });
-                }
-            }
-        }
-        
-        function drawGraph() {
-            graphCtx.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
-            
-            // Update node positions
-            for (let i = 0; i < nodes.length; i++) {
-                const node = nodes[i];
-                node.x += node.speedX;
-                node.y += node.speedY;
-                
-                // Bounce off edges
-                if (node.x < 0 || node.x > graphCanvas.width) node.speedX *= -1;
-                if (node.y < 0 || node.y > graphCanvas.height) node.speedY *= -1;
-            }
-            
-            // Draw links
-            for (let i = 0; i < links.length; i++) {
-                const link = links[i];
-                const sourceNode = nodes[link.source];
-                const targetNode = nodes[link.target];
-                
-                // Calculate distance
-                const dx = targetNode.x - sourceNode.x;
-                const dy = targetNode.y - sourceNode.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                // Only draw links if nodes are close enough
-                if (distance < 200) {
-                    const opacity = 1 - distance / 200;
-                    
-                    graphCtx.beginPath();
-                    graphCtx.moveTo(sourceNode.x, sourceNode.y);
-                    graphCtx.lineTo(targetNode.x, targetNode.y);
-                    graphCtx.strokeStyle = `rgba(0, 255, 255, ${opacity * 0.5})`;
-                    graphCtx.stroke();
-                }
-            }
-            
-            // Draw nodes
-            for (let i = 0; i < nodes.length; i++) {
-                const node = nodes[i];
-                
-                graphCtx.beginPath();
-                graphCtx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-                graphCtx.fillStyle = node.color;
-                graphCtx.fill();
-                
-                // Draw pulse effect
-                if (Math.random() > 0.99) {
-                    drawPulse(node.x, node.y);
-                }
-            }
-        }
-        
-        function drawPulse(x, y) {
-            const pulseCount = 3;
-            const maxRadius = 50;
-            const pulses = [];
-            
-            for (let i = 0; i < pulseCount; i++) {
-                pulses.push({
-                    x: x,
-                    y: y,
-                    radius: 5,
-                    maxRadius: maxRadius,
-                    opacity: 1,
-                    speed: 0.5 + Math.random()
-                });
-            }
-            
-            function animatePulses() {
-                let complete = true;
-                
-                for (let i = 0; i < pulses.length; i++) {
-                    const pulse = pulses[i];
-                    
-                    if (pulse.radius < pulse.maxRadius) {
-                        complete = false;
-                        pulse.radius += pulse.speed;
-                        pulse.opacity = 1 - (pulse.radius / pulse.maxRadius);
-                        
-                        graphCtx.beginPath();
-                        graphCtx.arc(pulse.x, pulse.y, pulse.radius, 0, Math.PI * 2);
-                        graphCtx.strokeStyle = `rgba(0, 255, 255, ${pulse.opacity})`;
-                        graphCtx.stroke();
-                    }
-                }
-                
-                if (!complete) {
-                    requestAnimationFrame(animatePulses);
-                }
-            }
-            
-            animatePulses();
-        }
-        
-        // Particle system
-        const particleCanvas = document.getElementById('particle-canvas');
-        const particleCtx = particleCanvas.getContext('2d');
-        
-        particleCanvas.width = window.innerWidth;
-        particleCanvas.height = window.innerHeight;
-        
-        const particles = [];
-        const particleCount = 50;
-        
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * particleCanvas.width,
-                y: Math.random() * particleCanvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5,
-                color: `rgba(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.7)`
-            });
-        }
-        
-        function drawParticles() {
-            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-            
-            for (let i = 0; i < particles.length; i++) {
-                const p = particles[i];
-                
-                p.x += p.speedX;
-                p.y += p.speedY;
-                
-                // Wrap around the screen
-                if (p.x < 0) p.x = particleCanvas.width;
-                if (p.x > particleCanvas.width) p.x = 0;
-                if (p.y < 0) p.y = particleCanvas.height;
-                if (p.y > particleCanvas.height) p.y = 0;
-                
-                particleCtx.beginPath();
-                particleCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                particleCtx.fillStyle = p.color;
-                particleCtx.fill();
-            }
-        }
-        
-        // Animation loop
-        function animate() {
-            drawMatrix();
-            drawGraph();
-            drawParticles();
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-        
-        // Resize event handler
-        window.addEventListener('resize', () => {
-            matrixCanvas.width = window.innerWidth;
-            matrixCanvas.height = window.innerHeight;
-            graphCanvas.width = window.innerWidth;
-            graphCanvas.height = window.innerHeight;
-            particleCanvas.width = window.innerWidth;
-            particleCanvas.height = window.innerHeight;
-        });
+            // Show selected, add active to button
+            document.getElementById(tabName + '-tab').classList.add('active');
 
-        // Greeting animation
-        setTimeout(() => {
-            document.getElementById('greeting-animation').style.display = 'none';
-        }, 2000);
-
-        // Add terminal line animation delay
-        const terminalLines = document.querySelectorAll('.terminal-line');
-        terminalLines.forEach((line, index) => {
-            line.style.animationDelay = `${(index + 1) * 0.1 + 0.5}s`;
-        });
+            // Find the button that called this and activate it
+            const eventTarget = event.currentTarget;
+            if (eventTarget) {
+                eventTarget.classList.add('active');
+            }
+        }
     </script>
 </body>
+
 </html>
