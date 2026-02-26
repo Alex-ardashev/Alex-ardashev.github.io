@@ -420,13 +420,13 @@
         <div id="top-social-links" style="display: flex; gap: 15px; margin-bottom: 30px;"></div>
 
         <!-- Tabs -->
-        <div class="tabs">
-            <button class="tab-btn active" onclick="openTab('products')">Me and my products</button>
-            <button class="tab-btn" onclick="openTab('projects')">Projects</button>
+        <div class="tabs" style="display: none;">
+            <button class="tab-btn" onclick="openTab('products')">Me and my products</button>
+            <button class="tab-btn active" onclick="openTab('projects')">Projects</button>
         </div>
 
         <!-- Products (Aleksei Ardashev) Tab -->
-        <div id="products-tab" class="tab-content active">
+        <div id="products-tab" class="tab-content">
             <div class="section profile-container">
                 <img src="assets/founder.png" alt="Aleksei Ardashev" class="profile-img"
                     onerror="this.src='https://ui-avatars.com/api/?name=Aleksei+Ardashev&size=150&background=2563eb&color=fff'">
@@ -452,7 +452,7 @@
         </div>
 
         <!-- Projects Tab -->
-        <div id="projects-tab" class="tab-content">
+        <div id="projects-tab" class="tab-content active">
             <div class="section">
                 <h2>Projects & Businesses</h2>
                 <div class="projects-grid" id="projects"></div>
