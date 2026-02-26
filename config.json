@@ -45,14 +45,14 @@
   "projects": [
     {
       "title": "FitCommit",
-      "description": "Fitness accountability app. Verify workouts with AI, compete on leaderboards, and build habits.",
+      "description": "Fitness accountability app. Verify workouts with AI, compete on leaderboards, and build habits. Side project (placeholder for Apple policies and EULA).",
       "url": "fitcommit/index.html",
       "status": "Active"
     },
     {
       "title": "Pickitbox",
       "description": "Animals identification via computer vision",
-      "url": "https://pickitbox.com/"
+      "status": "Currently working on"
     },
     {
       "title": "Compass",
