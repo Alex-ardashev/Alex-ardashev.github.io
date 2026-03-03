@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Aleksei A.",
-    "title": "Data Analytics | AI | Data Science",
+    "title": "Data Scientist",
     "currentRole": "Senior Product Analyst"
   },
   "social": [
@@ -44,15 +44,15 @@
   ],
   "projects": [
     {
+      "title": "Pickitbox",
+      "description": "a syncing system that understands why things are the way they are",
+      "status": "Currently working on"
+    },
+    {
       "title": "FitCommit",
       "description": "Fitness accountability app. Verify workouts with AI, compete on leaderboards, and build habits. Side project (placeholder for Apple policies and EULA).",
       "url": "fitcommit/index.html",
       "status": "Active"
-    },
-    {
-      "title": "Pickitbox",
-      "description": "Animals identification via computer vision",
-      "status": "Currently working on"
     },
     {
       "title": "Compass",
