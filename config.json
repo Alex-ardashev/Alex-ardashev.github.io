@@ -45,8 +45,13 @@
   "projects": [
     {
       "title": "Pickitbox",
-      "description": "a syncing system that understands why things are the way they are",
+      "description": "Clear the final decision before money or access moves.",
       "status": "Currently working on"
+    },
+    {
+      "title": "AI-assisted learning",
+      "description": "Figuring out best interfaces for using AI to make learning exciting.",
+      "status": "Exploring"
     },
     {
       "title": "FitCommit",
