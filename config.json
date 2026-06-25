@@ -45,13 +45,8 @@
   "projects": [
     {
       "title": "Pickitbox",
-      "description": "Clear the final decision before money or access moves.",
-      "status": "Currently working on"
-    },
-    {
-      "title": "AI-assisted learning",
-      "description": "Figuring out best interfaces for using AI to make learning exciting.",
-      "status": "Exploring"
+      "description": "Healthcare project for making the final decision clear before money or access moves.",
+      "status": "Working"
     },
     {
       "title": "FitCommit",
