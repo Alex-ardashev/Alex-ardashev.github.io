@@ -44,9 +44,9 @@
   ],
   "projects": [
     {
-      "title": "Pickitbox",
-      "description": "Healthcare project for making the final decision clear before money or access moves.",
-      "status": "Working"
+      "title": "Stealth Project",
+      "description": "LNG simulation app for allocating reduced supply across long-term commitments under uncertainty.",
+      "status": "In progress"
     },
     {
       "title": "FitCommit",
@@ -72,9 +72,9 @@
     }
   ],
   "experience": [
-    "Product Analytics & Engineering, Berlin '25",
+    "Data Science & Engineering, Berlin '26",
     "Strategy Consulting, Dubai '19",
-    "Data Analytics, Moscow '18"
+    "Data Analytics, Moscow '17"
   ],
   "education": "MSc Computer Science at Saint-Petersburg Electrotechnical University \"LETI\""
 }
