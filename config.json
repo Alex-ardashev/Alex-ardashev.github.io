@@ -46,6 +46,7 @@
     {
       "title": "Stealth Project",
       "description": "LNG simulation app for allocating reduced supply across long-term commitments under uncertainty.",
+      "url": "https://lng-shortfall-allocation.netlify.app/",
       "status": "In progress"
     },
     {
