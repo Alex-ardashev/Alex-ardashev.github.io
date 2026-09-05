@@ -44,7 +44,6 @@ a:focus-visible {
 .profile img {
   border-radius: 50%;
   object-fit: cover;
-  filter: grayscale(1);
 }
 h1 {
   font-size: 34px;
