@@ -16,7 +16,7 @@ function externalLink(url, text) {
 }
 
 async function loadPortfolio() {
-  const response = await fetch("config.json");
+  const response = await fetch("config.json", { cache: "no-store" });
   if (!response.ok) throw new Error("Unable to load portfolio");
   const config = await response.json();
   document.getElementById("name").textContent = config.personal.name;
@@ -24,16 +24,14 @@ async function loadPortfolio() {
   const projects = document.createDocumentFragment();
   config.projects.forEach((project) => {
     const card = element("article", "project-card");
-    card.append(
-      element("h3", "", project.title),
-      element("p", "", project.description),
-    );
-    const meta = element("div", "project-meta");
+    const heading = element("h3");
     if (project.url) {
-      const link = externalLink(project.url, "View project ↗");
-      link.setAttribute("aria-label", "View " + project.title);
-      meta.append(link);
+      heading.append(externalLink(project.url, project.title));
+    } else {
+      heading.textContent = project.title;
     }
+    card.append(heading, element("p", "", project.description));
+    const meta = element("div", "project-meta");
     if (project.status) meta.append(element("span", "status", project.status));
     card.append(meta);
     projects.append(card);
@@ -55,7 +53,7 @@ async function loadPortfolio() {
     .getElementById("social-links")
     .replaceChildren(
       ...config.social.map((social) =>
-        externalLink(social.url, social.name + " ↗"),
+        externalLink(social.url, social.name),
       ),
     );
 }
