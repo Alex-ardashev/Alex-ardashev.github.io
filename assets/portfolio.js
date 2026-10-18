@@ -22,12 +22,46 @@ async function loadPortfolio() {
   document.getElementById("name").textContent = config.personal.name;
   document.getElementById("title").textContent = config.personal.title;
   const projects = document.createDocumentFragment();
-  config.projectGroups.forEach((group) => {
+  const tabs = element("div", "project-tabs");
+  tabs.setAttribute("role", "tablist");
+  tabs.setAttribute("aria-label", "Projects");
+  projects.append(tabs);
+  const panels = [];
+  function selectTab(index) {
+    panels.forEach(({ tab, section }, position) => {
+      const selected = position === index;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      section.hidden = !selected;
+    });
+  }
+  config.projectGroups.forEach((group, index) => {
+    const tab = element("button", "project-tab", group.title);
+    tab.type = "button";
+    tab.id = `${group.id}-tab`;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-controls", group.id);
+    tab.addEventListener("click", () => selectTab(index));
+    tab.addEventListener("keydown", (event) => {
+      const last = panels.length - 1;
+      const next = {
+        ArrowRight: (index + 1) % panels.length,
+        ArrowLeft: (index + last) % panels.length,
+        Home: 0,
+        End: last,
+      }[event.key];
+      if (next === undefined) return;
+      event.preventDefault();
+      selectTab(next);
+      panels[next].tab.focus();
+    });
+    tabs.append(tab);
     const section = element("section", "project-group");
-    const title = element("h2", "", group.title);
-    title.id = group.id;
-    section.setAttribute("aria-labelledby", title.id);
-    section.append(title);
+    section.id = group.id;
+    section.setAttribute("role", "tabpanel");
+    section.setAttribute("aria-labelledby", tab.id);
+    section.tabIndex = 0;
+    panels.push({ tab, section });
     group.projects.forEach((project) => {
       const card = element("article", "project-card");
       const heading = element("h3");
@@ -44,6 +78,7 @@ async function loadPortfolio() {
     });
     projects.append(section);
   });
+  selectTab(0);
   document.getElementById("projects").replaceChildren(projects);
   const experience = document.getElementById("experience");
   config.experience.forEach((item) => {

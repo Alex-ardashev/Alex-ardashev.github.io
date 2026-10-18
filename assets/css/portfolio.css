@@ -14,20 +14,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration: none; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+a:focus-visible, button:focus-visible, [role="tabpanel"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 ::selection { background: #dde5ca; }
 .page { max-width: 800px; margin: 64px auto; padding: 0 32px; }
 .profile { display: flex; align-items: center; gap: 20px; }
-.profile img { border-radius: 50%; object-fit: cover; }
+.profile img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.profile > div { min-width: 0; }
 h1 { font-size: 25px; line-height: 1.2; font-weight: 500; letter-spacing: -1px; margin: 0 0 5px; }
-.profile p { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.profile p { font-size: 13px; line-height: 1.7; max-width: 520px; color: var(--muted); margin: 0 0 12px; }
 .social-links { display: flex; flex-wrap: wrap; gap: 7px; font-size: 11px; }
 .social-links a { padding: 6px 10px; border: 1px solid var(--line); border-radius: 5px; transition: background 160ms, border-color 160ms; }
 .social-links a:hover { background: #e9eddf; border-color: #a6b28d; }
 .intro { margin: 42px 0 40px; }
 .intro-detail { max-width: 530px; font-size: 14px; line-height: 1.8; color: var(--muted); }
 h2 { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.7px; color: var(--muted); margin: 0; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
-.project-group + .project-group { margin-top: 40px; }
+noscript .project-group + .project-group { margin-top: 40px; }
+.project-tabs { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 10px; border: 1px solid var(--line); border-radius: 8px; background: #eeefe7; }
+.project-tab { padding: 9px 14px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }
+.project-tab:hover { color: var(--ink); }
+.project-tab[aria-selected="true"] { background: var(--paper); color: var(--ink); box-shadow: 0 1px 3px #282d2614; }
 .project-card { display: grid; grid-template-columns: 112px minmax(0, 1fr) 65px; gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--line); }
 .project-card h3 { font-size: 15px; line-height: 1.6; letter-spacing: -.3px; font-weight: 500; margin: 0; }
 .project-card h3 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
