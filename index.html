@@ -6,7 +6,7 @@
     <title>Aleksei Ardashev — Data Scientist</title>
     <meta
       name="description"
-      content="Aleksei Ardashev — data scientist with experience in e-commerce, crypto, and blockchain. Explore projects, background, and Dune profile."
+      content="Aleksei Ardashev — data scientist with experience in e-commerce, crypto, and fraud detection. Explore client projects, personal projects, and analytics work."
     />
     <meta name="theme-color" content="#f7f7f2" />
     <link
@@ -15,8 +15,8 @@
       href="assets/favicons/favicon-32x32.png"
     />
     <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="assets/css/portfolio.css" />
-    <script src="assets/portfolio.js" defer></script>
+    <link rel="stylesheet" href="assets/css/portfolio.css?v=20261018" />
+    <script src="assets/portfolio.js?v=20261018" defer></script>
   </head>
   <body>
     <main class="page">
@@ -36,20 +36,19 @@
         </div>
       </div>
       <section class="intro" aria-label="About me">
-        <div class="intro-detail">I’m a data scientist with experience in e-commerce, crypto, and blockchain. My work brings together data science, product analytics, and engineering.</div>
+        <div class="intro-detail">I’m a data scientist with experience in e-commerce, crypto, and fraud detection. My work brings together data science, product analytics, and engineering.</div>
       </section>
-      <section aria-labelledby="work-title">
-        <h2 id="work-title">Projects & businesses</h2>
-        <div id="projects"><p class="muted">Loading projects…</p></div>
-        <noscript
-          ><p>
-            <a href="https://web-production-7a5fa3.up.railway.app/"
-              >LNG App</a
-            >
-            · <a href="fitcommit/index.html">FitCommit</a>
-          </p></noscript
-        >
-      </section>
+      <div id="projects"><p class="muted">Loading projects…</p></div>
+      <noscript>
+        <section class="project-group" aria-labelledby="client-projects-fallback">
+          <h2 id="client-projects-fallback">Client projects</h2>
+          <p class="muted">Compass · <a href="fitcommit/index.html">FitCommit</a> · Swim AI · Impact Link</p>
+        </section>
+        <section class="project-group" aria-labelledby="personal-projects-fallback">
+          <h2 id="personal-projects-fallback">Personal projects</h2>
+          <p class="muted"><a href="https://www.pickitbox.com/">Pickitbox</a> · Brif (inactive)</p>
+        </section>
+      </noscript>
       <section class="background" aria-labelledby="background-title">
         <h2 id="background-title">Previously</h2>
         <ul id="experience"></ul>

@@ -22,19 +22,27 @@ async function loadPortfolio() {
   document.getElementById("name").textContent = config.personal.name;
   document.getElementById("title").textContent = config.personal.title;
   const projects = document.createDocumentFragment();
-  config.projects.forEach((project) => {
-    const card = element("article", "project-card");
-    const heading = element("h3");
-    if (project.url) {
-      heading.append(externalLink(project.url, project.title));
-    } else {
-      heading.textContent = project.title;
-    }
-    card.append(heading, element("p", "", project.description));
-    const meta = element("div", "project-meta");
-    if (project.status) meta.append(element("span", "status", project.status));
-    card.append(meta);
-    projects.append(card);
+  config.projectGroups.forEach((group) => {
+    const section = element("section", "project-group");
+    const title = element("h2", "", group.title);
+    title.id = group.id;
+    section.setAttribute("aria-labelledby", title.id);
+    section.append(title);
+    group.projects.forEach((project) => {
+      const card = element("article", "project-card");
+      const heading = element("h3");
+      if (project.url) {
+        heading.append(externalLink(project.url, project.title));
+      } else {
+        heading.textContent = project.title;
+      }
+      card.append(heading, element("p", "", project.description));
+      const meta = element("div", "project-meta");
+      if (project.status) meta.append(element("span", "status", project.status));
+      card.append(meta);
+      section.append(card);
+    });
+    projects.append(section);
   });
   document.getElementById("projects").replaceChildren(projects);
   const experience = document.getElementById("experience");

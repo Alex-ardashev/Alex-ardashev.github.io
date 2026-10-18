@@ -42,29 +42,48 @@
       }
     }
   ],
-  "projects": [
+  "projectGroups": [
     {
-      "title": "LNG App",
-      "description": "LNG simulation app for allocating reduced supply across long-term commitments under uncertainty.",
-      "url": "https://web-production-7a5fa3.up.railway.app/",
-      "status": "In progress"
+      "id": "client-projects",
+      "title": "Client projects",
+      "projects": [
+        {
+          "title": "Compass",
+          "description": "Machine learning models that predict logistics costs for solar panel deliveries.",
+          "status": "Private"
+        },
+        {
+          "title": "FitCommit",
+          "description": "A fitness accountability app with AI workout checks, leaderboards, and tools to help users build habits.",
+          "url": "fitcommit/index.html",
+          "status": "Active"
+        },
+        {
+          "title": "Swim AI",
+          "description": "A data and coaching platform for a swimming club. Combines guidance on technique and speed, a training log, and internal club analytics."
+        },
+        {
+          "title": "Impact Link",
+          "description": "A platform for students and young people in the UAE to find opportunities, gain experience, and make an impact."
+        }
+      ]
     },
     {
-      "title": "FitCommit",
-      "description": "Fitness accountability app. Verify workouts with AI, compete on leaderboards, and build habits. Side project (placeholder for Apple policies and EULA).",
-      "url": "fitcommit/index.html",
-      "status": "Active"
-    },
-    {
-      "title": "Compass",
-      "description": "Predicting solar panels logistics costs using ML",
-      "status": "Private"
-    },
-    {
-      "title": "Brif",
-      "description": "B2B platform that provides summaries of conferences worldwide",
-      "url": null,
-      "status": "Inactive"
+      "id": "personal-projects",
+      "title": "Personal projects",
+      "projects": [
+        {
+          "title": "Pickitbox",
+          "description": "Applied research and analytics for crypto teams. Uses simulation to test liquidity risks, compare reward designs, and identify reward abuse.",
+          "url": "https://www.pickitbox.com/",
+          "status": "In progress"
+        },
+        {
+          "title": "Brif",
+          "description": "A B2B platform with summaries of conferences worldwide.",
+          "status": "Inactive"
+        }
+      ]
     }
   ],
   "experience": [
