@@ -60,11 +60,13 @@
         },
         {
           "title": "Swim AI",
-          "description": "A data and coaching platform for a swimming club. Combines guidance on technique and speed, a training log, and internal club analytics."
+          "description": "A data and coaching platform for a swimming club. Combines guidance on technique and speed, a training log, and internal club analytics.",
+          "status": "Private"
         },
         {
           "title": "Impact Link",
-          "description": "A platform for students and young people in the UAE to find opportunities, gain experience, and make an impact."
+          "description": "A platform for students and young people in the UAE to find opportunities, gain experience, and make an impact.",
+          "status": "Private"
         }
       ]
     },
