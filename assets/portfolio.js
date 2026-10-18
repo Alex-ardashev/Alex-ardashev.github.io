@@ -91,8 +91,8 @@ async function loadPortfolio() {
       const image = element("img", "project-image");
       image.src = project.image;
       image.alt = project.imageAlt;
-      image.width = 1200;
-      image.height = 800;
+      image.width = 1536;
+      image.height = 1024;
       image.loading = "lazy";
       image.decoding = "async";
       const visual = project.url ? externalLink(project.url) : element("div");
