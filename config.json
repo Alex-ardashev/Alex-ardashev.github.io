@@ -50,23 +50,31 @@
         {
           "title": "Compass",
           "description": "Machine learning models that predict logistics costs for solar panel deliveries.",
-          "status": "Private"
+          "status": "Private",
+          "image": "assets/projects/compass.jpg",
+          "imageAlt": "Illustration of a solar-panel delivery route through a coastal landscape."
         },
         {
           "title": "FitCommit",
           "description": "A fitness accountability app with AI workout checks, leaderboards, and tools to help users build habits.",
           "url": "fitcommit/index.html",
-          "status": "Active"
+          "status": "Active",
+          "image": "assets/projects/fitcommit.jpg",
+          "imageAlt": "Colorful dumbbells, a training ring and a calendar with workout check marks."
         },
         {
           "title": "Swim AI",
           "description": "A data and coaching platform for a swimming club. Combines guidance on technique and speed, a training log, and internal club analytics.",
-          "status": "Private"
+          "status": "Private",
+          "image": "assets/projects/swim-ai.jpg",
+          "imageAlt": "Illustration of a swimming pool with a training-data curve across the lanes."
         },
         {
           "title": "Impact Link",
           "description": "A platform for students and young people in the UAE to find opportunities, gain experience, and make an impact.",
-          "status": "Private"
+          "status": "Private",
+          "image": "assets/projects/impact-link.jpg",
+          "imageAlt": "Illustration of young people connected by paths, stairs and archways."
         }
       ]
     },
@@ -78,12 +86,16 @@
           "title": "Pickitbox",
           "description": "Applied research and analytics for crypto teams. Uses simulation to test liquidity risks, compare reward designs, and identify reward abuse.",
           "url": "https://www.pickitbox.com/",
-          "status": "In progress"
+          "status": "In progress",
+          "image": "assets/projects/pickitbox.jpg",
+          "imageAlt": "Glass channels and gates illustrate liquidity flows and risk controls."
         },
         {
           "title": "Brif",
           "description": "A B2B platform with summaries of conferences worldwide.",
-          "status": "Inactive"
+          "status": "Inactive",
+          "image": "assets/projects/brif.jpg",
+          "imageAlt": "Colorful conference cards, a microphone and a globe."
         }
       ]
     }

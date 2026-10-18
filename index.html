@@ -15,8 +15,8 @@
       href="assets/favicons/favicon-32x32.png"
     />
     <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="assets/css/portfolio.css?v=20261018-2" />
-    <script src="assets/portfolio.js?v=20261018-2" defer></script>
+    <link rel="stylesheet" href="assets/css/portfolio.css?v=20261018-3" />
+    <script src="assets/portfolio.js?v=20261018-3" defer></script>
   </head>
   <body>
     <main class="page">
@@ -38,7 +38,15 @@
       <section class="intro" aria-label="About me">
         <div class="intro-detail">I’m a data scientist with experience in e-commerce, crypto, and fraud detection. My work brings together data science, product analytics, and engineering.</div>
       </section>
-      <div id="projects"><p class="muted">Loading projects…</p></div>
+      <section class="background" aria-labelledby="background-title">
+        <h2 id="background-title">Experience</h2>
+        <ul id="experience"></ul>
+        <p id="education" class="education"></p>
+      </section>
+      <section class="work" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div id="projects"><p class="muted">Loading projects…</p></div>
+      </section>
       <noscript>
         <section class="project-group" aria-labelledby="client-projects-fallback">
           <h2 id="client-projects-fallback">Client projects</h2>
@@ -49,11 +57,6 @@
           <p class="muted"><a href="https://www.pickitbox.com/">Pickitbox</a> · Brif (inactive)</p>
         </section>
       </noscript>
-      <section class="background" aria-labelledby="background-title">
-        <h2 id="background-title">Previously</h2>
-        <ul id="experience"></ul>
-        <p id="education" class="education"></p>
-      </section>
     </main>
   </body>
 </html>

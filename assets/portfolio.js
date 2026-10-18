@@ -64,16 +64,30 @@ async function loadPortfolio() {
     panels.push({ tab, section });
     group.projects.forEach((project) => {
       const card = element("article", "project-card");
+      const image = element("img", "project-image");
+      image.src = project.image;
+      image.alt = project.imageAlt;
+      image.width = 1200;
+      image.height = 800;
+      image.loading = "lazy";
+      image.decoding = "async";
+      const visual = project.url ? externalLink(project.url) : element("div");
+      visual.className = "project-visual";
+      if (project.url) visual.setAttribute("aria-label", `View ${project.title}`);
+      visual.append(image);
+      card.append(visual);
+      const caption = element("div", "project-caption");
       const heading = element("h3");
       if (project.url) {
         heading.append(externalLink(project.url, project.title));
       } else {
         heading.textContent = project.title;
       }
-      card.append(heading, element("p", "", project.description));
-      const meta = element("div", "project-meta");
-      if (project.status) meta.append(element("span", "status", project.status));
-      card.append(meta);
+      const header = element("div", "project-heading");
+      header.append(heading);
+      if (project.status) header.append(element("span", "status", project.status));
+      caption.append(header, element("p", "", project.description));
+      card.append(caption);
       section.append(card);
     });
     projects.append(section);
