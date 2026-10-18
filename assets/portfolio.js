@@ -27,13 +27,37 @@ async function loadPortfolio() {
   tabs.setAttribute("aria-label", "Projects");
   projects.append(tabs);
   const panels = [];
-  function selectTab(index) {
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let activeIndex = -1;
+  let transitionId = 0;
+  async function selectTab(index) {
+    if (index === activeIndex) return;
+    const id = ++transitionId;
+    const previous = panels.find(({ section }) => !section.hidden)?.section;
+    activeIndex = index;
+    tabs.style.setProperty("--active-tab", index);
+    panels.forEach(({ section }) => section.getAnimations().forEach(animation => animation.cancel()));
+    if (previous && !reducedMotion.matches && previous.isConnected) {
+      await previous.animate(
+        [{ opacity: 1 }, { opacity: 0, transform: "translateY(8px)" }],
+        { duration: 140, easing: "ease-out", fill: "forwards" },
+      ).finished.catch(() => {});
+    }
+    if (id !== transitionId) return;
     panels.forEach(({ tab, section }, position) => {
+      section.getAnimations().forEach(animation => animation.cancel());
       const selected = position === index;
       tab.setAttribute("aria-selected", String(selected));
       tab.tabIndex = selected ? 0 : -1;
       section.hidden = !selected;
     });
+    const current = panels[index].section;
+    if (!reducedMotion.matches && current.isConnected) {
+      current.animate(
+        [{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "translateY(0)" }],
+        { duration: 480, easing: "cubic-bezier(.22, 1, .36, 1)" },
+      );
+    }
   }
   config.projectGroups.forEach((group, index) => {
     const tab = element("button", "project-tab", group.title);
@@ -113,6 +137,21 @@ async function loadPortfolio() {
         externalLink(social.url, social.name),
       ),
     );
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (!isIntersecting) return;
+      reveal.unobserve(target);
+      if (reducedMotion.matches) return;
+      target.animate(
+        [{ opacity: 0, transform: "translateY(24px)" }, { opacity: 1, transform: "translateY(0)" }],
+        { duration: 750, easing: "cubic-bezier(.22, 1, .36, 1)" },
+      );
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".profile, .intro, .background, .project-card").forEach(node => reveal.observe(node));
+  reducedMotion.addEventListener("change", () => {
+    if (reducedMotion.matches) document.getAnimations().forEach(animation => animation.cancel());
+  });
 }
 
 loadPortfolio().catch((error) => {
