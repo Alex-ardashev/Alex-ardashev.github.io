@@ -148,7 +148,7 @@ async function loadPortfolio() {
       );
     });
   }, { threshold: 0.08 });
-  document.querySelectorAll(".profile, .intro, .background, .project-card").forEach(node => reveal.observe(node));
+  document.querySelectorAll(".profile, .background, .project-card").forEach(node => reveal.observe(node));
   reducedMotion.addEventListener("change", () => {
     if (reducedMotion.matches) document.getAnimations().forEach(animation => animation.cancel());
   });
