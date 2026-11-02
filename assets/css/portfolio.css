@@ -45,6 +45,8 @@ h1 { margin: 0; font-size: clamp(40px, 4.4vw, 76px); line-height: .99; letter-sp
 .education, .muted { font-size: 12px; color: var(--muted); }
 .education { margin: 7px 0 16px; }
 #open-source { border-left: 3px solid #ff9871; padding-left: 11px; }
+#open-source a { text-decoration: underline; text-underline-offset: 3px; }
+#open-source a:hover { color: var(--accent); }
 #open-source p { margin: 3px 0 0; font-size: 13px; }
 .work { grid-area: work; min-width: 0; border-top: 1px solid var(--line); padding-top: 17px; }
 .work > h2 { margin: 0 0 14px; font-size: clamp(28px, 3vw, 43px); line-height: 1.1; letter-spacing: -.05em; font-weight: 600; }
