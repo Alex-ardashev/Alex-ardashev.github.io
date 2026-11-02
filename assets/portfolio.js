@@ -20,7 +20,6 @@ async function loadPortfolio() {
   if (!response.ok) throw new Error("Unable to load portfolio");
   const config = await response.json();
   document.getElementById("name").textContent = config.personal.name;
-  document.getElementById("title").textContent = config.personal.title;
   const projects = document.createDocumentFragment();
   const tabs = element("div", "project-tabs");
   tabs.setAttribute("role", "tablist");

@@ -8,61 +8,54 @@
       name="description"
       content="Aleksei Ardashev — data scientist with experience in e-commerce, crypto, and fraud detection. Explore client projects, personal projects, and analytics work."
     />
-    <meta name="theme-color" content="#f7f7f2" />
+    <meta name="theme-color" content="#fbfbf7" />
     <link
       rel="icon"
       type="image/png"
       href="assets/favicons/favicon-32x32.png"
     />
     <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="assets/css/portfolio.css?v=20261018-6" />
-    <script src="assets/portfolio.js?v=20261018-6" defer></script>
+    <link rel="stylesheet" href="assets/css/portfolio.css?v=20261102-1" />
+    <script src="assets/portfolio.js?v=20261102-1" defer></script>
   </head>
   <body>
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Aleksei Ardashev, home"><b aria-hidden="true">aa<span>.</span></b><span>Personal website</span></a>
+      <nav aria-label="Page sections"><a href="#projects-title">Projects</a><a href="#background-title">Background</a></nav>
+    </header>
     <main class="page">
-      <div class="overview">
-        <div class="profile">
-          <img
-            src="assets/founder.png"
-            alt="Aleksei Ardashev"
-            width="180"
-            height="210"
-          />
-          <div>
-            <h1 id="name">Aleksei A.</h1>
-            <p id="title">Data Scientist | Crypto &amp; On-chain Analytics | Product Analytics | Fraud &amp; Risk</p>
-            <section class="intro" aria-label="About me">
-              <div class="intro-detail">I’m a data scientist with experience in e-commerce, crypto, and fraud detection. My work brings together data science, product analytics, and engineering. I’m interested in simulation models.</div>
-            </section>
-            <div id="social-links" class="social-links">
-              <a href="https://github.com/alex-ardashev">GitHub</a>
-            </div>
-          </div>
+      <section class="profile" aria-labelledby="name">
+        <div class="portrait"><img src="assets/aleksei-sketch.jpg" width="384" height="384" alt="Sketch of Aleksei Ardashev" /></div>
+        <div class="identity">
+          <p class="eyebrow">Data scientist</p>
+          <h1 id="name">Aleksei Ardashev</h1>
         </div>
-        <section class="background" aria-labelledby="background-title">
-          <h2 id="background-title">Experience</h2>
-          <ul id="experience"></ul>
-          <p id="education" class="education"></p>
-        </section>
-        <section class="background" id="open-source" aria-labelledby="open-source-title">
-          <h2 id="open-source-title">Open source</h2>
-          <p class="muted">I’ve contributed to <strong>cachetools</strong> and <strong>Plotly</strong>.</p>
-        </section>
-      </div>
+        <p class="intro">I study product behavior, on-chain activity, and fraud. I’m interested in simulation models for risk.</p>
+        <div id="social-links" class="social-links"><a href="https://github.com/Alex-ardashev">GitHub</a></div>
+      </section>
       <section class="work" aria-labelledby="projects-title">
         <h2 id="projects-title">Projects</h2>
         <div id="projects"><p class="muted">Loading projects…</p></div>
+        <noscript>
+          <section class="project-group" aria-labelledby="client-projects-fallback">
+            <h2 id="client-projects-fallback">Client projects</h2>
+            <p class="muted">Compass (private) · <a href="fitcommit/index.html">FitCommit</a> · Swim AI (private) · Impact Link (private)</p>
+          </section>
+          <section class="project-group" aria-labelledby="personal-projects-fallback">
+            <h2 id="personal-projects-fallback">Personal projects</h2>
+            <p class="muted"><a href="https://www.pickitbox.com/">Pickitbox</a> · Brif (inactive)</p>
+          </section>
+        </noscript>
       </section>
-      <noscript>
-        <section class="project-group" aria-labelledby="client-projects-fallback">
-          <h2 id="client-projects-fallback">Client projects</h2>
-          <p class="muted">Compass (private) · <a href="fitcommit/index.html">FitCommit</a> · Swim AI (private) · Impact Link (private)</p>
+      <aside class="background" aria-labelledby="background-title">
+        <h2 id="background-title">Experience</h2>
+        <ul id="experience"></ul>
+        <p id="education" class="education"></p>
+        <section id="open-source" aria-labelledby="open-source-title">
+          <h2 id="open-source-title">Open source</h2>
+          <p>I’ve contributed to <strong>cachetools</strong> and <strong>Plotly</strong>.</p>
         </section>
-        <section class="project-group" aria-labelledby="personal-projects-fallback">
-          <h2 id="personal-projects-fallback">Personal projects</h2>
-          <p class="muted"><a href="https://www.pickitbox.com/">Pickitbox</a> · Brif (inactive)</p>
-        </section>
-      </noscript>
+      </aside>
     </main>
   </body>
 </html>
