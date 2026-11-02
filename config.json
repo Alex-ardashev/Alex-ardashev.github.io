@@ -83,6 +83,13 @@
       "title": "Personal projects",
       "projects": [
         {
+          "title": "Cardio ML",
+          "description": "A personal research project for classifying single-lead ECG heartbeats. Compares machine learning models and provides a local interface to review predictions and signal quality. Research use only.",
+          "status": "Research",
+          "image": "assets/projects/cardio-ml-sketch.jpg",
+          "imageAlt": "Pencil sketch of ECG traces and a laptop used for heartbeat classification research."
+        },
+        {
           "title": "Pickitbox",
           "description": "Applied research and analytics for crypto teams. Uses simulation to test liquidity risks, compare reward designs, and identify reward abuse.",
           "url": "https://www.pickitbox.com/",
