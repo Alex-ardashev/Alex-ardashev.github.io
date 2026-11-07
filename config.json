@@ -83,6 +83,14 @@
       "title": "Personal projects",
       "projects": [
         {
+          "title": "RecordPact",
+          "description": "A data brokerage that helps universities and companies license datasets for AI research. Services include removing personal details and standardizing records.",
+          "url": "https://recordpact.com/",
+          "status": "Active",
+          "image": "assets/projects/recordpact-sketch.jpg",
+          "imageAlt": "Ink sketch of research files, instrument readings, and a signed data license."
+        },
+        {
           "title": "Cardio ML",
           "description": "A personal research project for classifying single-lead ECG heartbeats. Compares machine learning models and provides a local interface to review predictions and signal quality. Research use only.",
           "status": "Research",
