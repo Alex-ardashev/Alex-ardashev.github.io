@@ -1,0 +1,100 @@
+const portfolioData = {
+  "personal": {
+    "name": "Aleksei Ardashev",
+    "title": "Data Scientist | Crypto & On-chain Analytics | Product Analytics | Fraud & Risk",
+    "currentRole": "Senior Product Analyst"
+  },
+  "social": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/alexardshv/?locale=en_US"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/alex-ardashev"
+    },
+    {
+      "name": "◈ Dune",
+      "url": "https://dune.com/alex_bip/"
+    }
+  ],
+  "projectGroups": [
+    {
+      "id": "client-projects",
+      "title": "Client projects",
+      "projects": [
+        {
+          "title": "Compass",
+          "description": "Machine learning models that predict logistics costs for solar panel deliveries.",
+          "status": "Private",
+          "image": "assets/projects/compass-sketch.jpg",
+          "imageAlt": "Ink sketch of a solar-panel delivery route, truck and warehouse."
+        },
+        {
+          "title": "FitCommit",
+          "description": "A fitness accountability app with AI workout checks, leaderboards, and tools to help users build habits.",
+          "url": "fitcommit/index.html",
+          "status": "Active",
+          "image": "assets/projects/fitcommit-sketch.jpg",
+          "imageAlt": "Pencil sketch of dumbbells, a training notebook and a stopwatch."
+        },
+        {
+          "title": "Swim AI",
+          "description": "A data and coaching platform for a swimming club. Combines guidance on technique and speed, a training log, and internal club analytics.",
+          "status": "Private",
+          "image": "assets/projects/swim-ai-sketch.jpg",
+          "imageAlt": "Architectural sketch of a lap pool and a training-data curve."
+        },
+        {
+          "title": "Impact Link",
+          "description": "A platform for students and young people in the UAE to find opportunities, gain experience, and make an impact.",
+          "status": "Private",
+          "image": "assets/projects/impact-link-sketch.jpg",
+          "imageAlt": "Ink sketch of students connected by paths through UAE archways and stairs."
+        }
+      ]
+    },
+    {
+      "id": "personal-projects",
+      "title": "Personal projects",
+      "projects": [
+        {
+          "title": "RecordPact",
+          "description": "A data brokerage that helps universities and companies license datasets for AI research. Services include removing personal details and standardizing records.",
+          "url": "https://recordpact.com/",
+          "status": "Active",
+          "image": "assets/projects/recordpact-sketch.jpg",
+          "imageAlt": "Ink sketch of research files, instrument readings, and a signed data license."
+        },
+        {
+          "title": "Cardio ML",
+          "description": "A personal research project for classifying single-lead ECG heartbeats. Compares machine learning models and provides a local interface to review predictions and signal quality. Research use only.",
+          "status": "Research",
+          "image": "assets/projects/cardio-ml-sketch.jpg",
+          "imageAlt": "Pencil sketch of ECG traces and a laptop used for heartbeat classification research."
+        },
+        {
+          "title": "Pickitbox",
+          "description": "Applied research and analytics for crypto teams. Uses simulation to test liquidity risks, compare reward designs, and identify reward abuse.",
+          "url": "https://www.pickitbox.com/",
+          "status": "In progress",
+          "image": "assets/projects/pickitbox-sketch.jpg",
+          "imageAlt": "Technical sketch of reservoirs, flow gates and analytical curves."
+        },
+        {
+          "title": "Brif",
+          "description": "A B2B platform with summaries of conferences worldwide.",
+          "status": "Inactive",
+          "image": "assets/projects/brif-sketch.jpg",
+          "imageAlt": "Ink sketch of conference notes, a microphone and a globe."
+        }
+      ]
+    }
+  ],
+  "experience": [
+    "Data Science & Engineering · Berlin/Dubai, 2019–Current",
+    "Strategy Consulting · Dubai, 2018–2019",
+    "Data Analytics · Moscow, 2017–2018"
+  ],
+  "education": "MSc Computer Science at Saint-Petersburg Electrotechnical University \"LETI\" · 2012–2017"
+};

@@ -15,10 +15,7 @@ function externalLink(url, text) {
   return link;
 }
 
-async function loadPortfolio() {
-  const response = await fetch("config.json", { cache: "no-store" });
-  if (!response.ok) throw new Error("Unable to load portfolio");
-  const config = await response.json();
+function renderPortfolio(config) {
   document.getElementById("name").textContent = config.personal.name;
   const projects = document.createDocumentFragment();
   const tabs = element("div", "project-tabs");
@@ -153,11 +150,13 @@ async function loadPortfolio() {
   });
 }
 
-loadPortfolio().catch((error) => {
+try {
+  renderPortfolio(portfolioData);
+} catch (error) {
   console.error(error);
   const message = element("p", "muted", "Projects couldn’t load. ");
   const retry = element("a", "", "Try again.");
   retry.href = location.href;
   message.append(retry);
   document.getElementById("projects").replaceChildren(message);
-});
+}
